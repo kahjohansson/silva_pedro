@@ -11,6 +11,12 @@ import tela.TabelaMembro;
 import tela.cadastraCargo;
 import tela.cadastraMinisterio;
 import telav2.TelaPrincipal;
+import conexao.Conexao;
+import java.sql.Connection;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -92,10 +98,18 @@ public class telaAdm extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        RMinisterio rMinisterio = new RMinisterio();
-        rMinisterio.setVisible(true);
-        rMinisterio.setFocusable(true);
-        jDesktopPane1.add(rMinisterio);
+        Connection conn = Conexao.get();
+        String src = "relatorioMinisterios.jasper";
+        JasperPrint jasperPrint = null;
+        
+        try {
+            jasperPrint = JasperFillManager.fillReport(src, null, conn);
+        } catch (JRException ex) {
+            System.out.println("Erro: "+ex);
+        }
+        
+        JasperViewer view = new JasperViewer(jasperPrint,false);
+        view.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
