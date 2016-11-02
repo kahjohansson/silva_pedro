@@ -5,7 +5,7 @@
  */
 package relatorios;
 
-import conexao.Conexao;
+import Conexao.Conexao;
 import java.sql.Connection;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;

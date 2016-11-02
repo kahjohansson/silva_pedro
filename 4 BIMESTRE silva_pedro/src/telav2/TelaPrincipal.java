@@ -5,7 +5,7 @@
  */
 package telav2;
 
-import conexao.Conexao;
+import Conexao.Conexao;
 import java.util.Scanner;
 import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;

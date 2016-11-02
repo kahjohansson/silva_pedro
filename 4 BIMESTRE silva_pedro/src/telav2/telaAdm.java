@@ -11,7 +11,7 @@ import tela.TabelaMembro;
 import tela.cadastraCargo;
 import tela.cadastraMinisterio;
 import telav2.TelaPrincipal;
-import conexao.Conexao;
+import Conexao.Conexao;
 import java.sql.Connection;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;

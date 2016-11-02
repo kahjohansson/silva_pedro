@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import pojo.Aviso;
-import conexao.Conexao;
+import Conexao.Conexao;
 
 public class DAOAviso {
     

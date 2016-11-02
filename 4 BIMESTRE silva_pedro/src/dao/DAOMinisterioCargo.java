@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import pojo.Ministerio;
-import conexao.Conexao;
+import Conexao.Conexao;
 import pojo.Cargo;
 
 public class DAOMinisterioCargo {

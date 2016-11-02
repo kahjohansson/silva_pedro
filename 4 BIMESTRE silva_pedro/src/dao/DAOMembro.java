@@ -2,7 +2,7 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 import pojo.Membro;
-import conexao.Conexao;
+import Conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
