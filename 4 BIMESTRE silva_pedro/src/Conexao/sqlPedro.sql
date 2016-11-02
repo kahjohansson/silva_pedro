@@ -1,0 +1,63 @@
+﻿CREATE DATABASE silva;
+
+USE silva;
+
+CREATE TABLE IF NOT EXISTS cargo_s(
+id_p INTEGER AUTO_INCREMENT NOT NULL
+,n_p VARCHAR(120) NOT NULL
+,PRIMARY KEY(id_p)
+);
+CREATE TABLE IF NOT EXISTS aviso_s(
+id_p INTEGER AUTO_INCREMENT NOT NULL
+,titulo_p VARCHAR(120) NOT NULL
+,campo_p VARCHAR(1500) NOT NULL
+,data_p DATETIME NOT NULL
+,id_aux_p INTEGER NOT NULL
+,PRIMARY KEY(id_p)
+);
+CREATE TABLE IF NOT EXISTS min_s(
+id_p INTEGER AUTO_INCREMENT NOT NULL
+,n_p VARCHAR(120) NOT NULL
+,PRIMARY KEY(id_p)
+);
+
+CREATE TABLE IF NOT EXISTS membro_s(
+id_p INTEGER AUTO_INCREMENT NOT NULL
+,nome_p VARCHAR(120) NOT NULL
+,endereco_p VARCHAR(120) NOT NULL
+,cpf_p VARCHAR(11) NOT NULL
+,cidade_p VARCHAR(70) NOT NULL
+,sexo_p VARCHAR(1) NOT NULL
+,telefone_p VARCHAR(14) NULL
+,celular_p VARCHAR(14) NULL
+,usuario_p VARCHAR(30) NOT NULL
+,data_nasc_p DATE NOT NULL
+,PRIMARY KEY(id_p)
+);
+
+INSERT INTO min_s(n_p) VALUES ('Ação Administrativa'),('Ação Social'),('CLAM'),('Comunicação'),('Concílio Local'),('Escola Dominical'),('Ministério Infantil'),('Ministério da Interseção'),('Ministério da Juventude'),('Ministério da Ornamentação'),('Ministério da Palavra'),('Ministério de Ação Docente'),('Ministério de Casais'),('Ministério do Discipulado'),('Patrimônio e Finanças'),('Tesouraria');
+
+CREATE TABLE IF NOT EXISTS min_carg_s(
+min_id_p INTEGER NOT NULL
+,cargo_id_p INTEGER NOT NULL
+,CONSTRAINT fk_min_min foreign key(min_id_p) references min_s (id_p)
+,CONSTRAINT fk_min_carg foreign key(cargo_id_p) references cargo_s(id_p)
+,PRIMARY KEY(min_id_p, cargo_id_p)
+);
+
+CREATE TABLE IF NOT EXISTS min_carg_memb_s(
+min_id_p INTEGER NOT NULL
+,cargo_id_p INTEGER NOT NULL
+,membro_id_p INTEGER NOT NULL
+,CONSTRAINT fk_min_min1 foreign key(min_id_p) references min_carg_s(min_id_p)
+,CONSTRAINT fk_min_carg1 foreign key(cargo_id_p) references min_carg_s(cargo_id_p)
+,CONSTRAINT fk_min_membro1 foreign key(membro_id_p) references membro_s(id_p)
+,PRIMARY KEY(min_id_p, cargo_id_p, membro_id_p)
+);
+
+CREATE TABLE IF NOT EXISTS comentario_s(
+id_p INTEGER AUTO_INCREMENT NOT NULL
+,campo_p VARCHAR(1200) NOT NULL
+,data DATETIME NOT NULL
+,PRIMARY KEY(id_p)
+);

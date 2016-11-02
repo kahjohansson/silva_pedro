@@ -47,6 +47,7 @@ public class telaAdm extends javax.swing.JFrame {
         barraMenu = new javax.swing.JMenuBar();
         cadastro = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         consulta = new javax.swing.JMenu();
         relatorios = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -58,13 +59,21 @@ public class telaAdm extends javax.swing.JFrame {
 
         cadastro.setText("Cadastro");
 
-        jMenuItem1.setText("Cadastro de Membros");
+        jMenuItem1.setText("Membros");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
         cadastro.add(jMenuItem1);
+
+        jMenuItem3.setText("Membros em Cargos de Ministérios");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        cadastro.add(jMenuItem3);
 
         barraMenu.add(cadastro);
 
@@ -112,6 +121,14 @@ public class telaAdm extends javax.swing.JFrame {
         view.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        CadastroMinisterioCargoMembro cadMCM = new CadastroMinisterioCargoMembro();
+        cadMCM.setVisible(true);
+        cadMCM.setFocusable(true);
+        jDesktopPane1.add(cadMCM);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -154,6 +171,7 @@ public class telaAdm extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu relatorios;
     // End of variables declaration//GEN-END:variables
 }
